@@ -1,18 +1,15 @@
 import React from "react";
 import { useRef } from 'react';
 import codeGen from "../utils/qrCodeGenerator.js";
-import './artiststyle.css'
+import "./artiststyle.css";
+// import DashboardLandingPage from "../pages/dashboard.tsx"
 
-
-
-// this page will be for the artist dashboard
-const qrcodeGenerator = () => {
-  const code = codeGen();
-  return code;
-};
+// this page will be for the attendees on the venue when they scan the QR
 
 const DashboardLandingPage = () => {
     const myRef = useRef(null);
+    const code = codeGen();
+    console.log(code);
     return <div id= "document-body">
     <div>
         <h1>HELLO</h1>

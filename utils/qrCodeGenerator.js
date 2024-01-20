@@ -25,11 +25,11 @@
 //   console.log('QR code saved as index.html');
 // });
 
-const QRCode = require("qrcode");
+import QRCode from "qrcode"
 
 function codeGen() {
   QRCode.toDataURL(
-    "web dev is mi pasion !!!!",
+    "filler !!!!",
     {
       errorCorrectionLevel: "H",
       type: "image/png",

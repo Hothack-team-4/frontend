@@ -47,6 +47,7 @@ const AttendanceLandingPage = () => {
         const currAttendees = [...innerDoc.data().attendees];
         currAttendees.push(fingerPrint);
         setDoc(doc(db, "events", innerDoc.id), {
+          ...innerDoc.data(),
           attendees: currAttendees,
         });
       });

@@ -6,10 +6,11 @@ import Card from "react-bootstrap/Card";
 const EventList = ({ list }: any) => {
   return (
     <div>
-      <h1>Here is your event list:</h1>
+      <h1>YOUR EVENT LIST</h1>
       {list.map((event: any) => {
         return (
-          <Card key={event.name}>
+          <Card key={event.name}
+          style={{}}>
             <Card.Body>
               {event.name}
               Attendees: {event.attendees.length}

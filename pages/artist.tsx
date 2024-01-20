@@ -52,38 +52,35 @@ const DashboardLandingPage = () => {
       </div>
       <div id="current-event">
         <h2>CURRENT EVENTS</h2>
-        {/* JS insert: name/date of event or no event found*/}
       </div>
       <div>
         <EventList list={list} />
         <EventForm setShowModal={setShowModal} getEventList={getEventList} />
         <button>Create New Event!</button>
-        <div id="stats">
+        {/* <div id="stats">
           <h2>NUMBER SCANNED</h2>
-        </div>
+        </div> */}
         <div id="QR-code">
           <div id="placeholder-for-qrcode"></div>
           <button>DOWNLOAD</button>
         </div>
       </div>
       <div>
-        <EventList list={list} />
-
+        {/* <EventList list={list} />
         <Modal show={showModal} onHide={() => setShowModal(false)} animation>
           <EventForm setShowModal={setShowModal} getEventList={getEventList} />
-        </Modal>
-
+        </Modal> */}
+{/* 
         <button
           onClick={() => {
             setShowModal(!showModal);
           }}
         >
           Create New Event!
-        </button>
+        </button> */}
       </div>
     </div>
   );
 };
 
-//export { DashboardLandingPage, qrcodeGenerator }
 export default DashboardLandingPage;

@@ -1,6 +1,6 @@
 import { createContext, useContext, PropsWithChildren } from "react";
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { Firestore, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -12,9 +12,14 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
 
-export type DBContextType = {};
+export type DBContextType = {
+  db?: Firestore;
+  state: any;
+};
 
-const dbInitialValue = {};
+const dbInitialValue = {
+  state: {},
+};
 export const DBContext = createContext<DBContextType>(dbInitialValue);
 
 export function useDBContext() {
@@ -34,5 +39,7 @@ export const DBWrapper = ({ children }: PropsWithChildren) => {
 
   console.log(db);
 
-  return <DBContext.Provider value={state}>{children}</DBContext.Provider>;
+  return (
+    <DBContext.Provider value={{ state, db }}>{children}</DBContext.Provider>
+  );
 };

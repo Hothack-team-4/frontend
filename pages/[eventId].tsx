@@ -28,6 +28,8 @@ const AttendanceLandingPage = () => {
   const [event, setEvent] = useState<any>();
   const [artist, setArtist] = useState<any>();
   const [email, setEmail] = useState("");
+  const [sentEmail, setSentEmail] = useState(false);
+
   const { db } = useDBContext();
 
   const getFingerPrint = async () => {
@@ -91,6 +93,7 @@ const AttendanceLandingPage = () => {
       });
 
       toast("Thanks for attending!");
+      setSentEmail(true);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -102,9 +105,9 @@ const AttendanceLandingPage = () => {
 
   return (
     <main>
-      <section>
-        <img src="" alt="" />
-        {artist?.name} {event?.name}
+      <section className="flex flex-col justify-center items-center">
+        <span>{artist?.name}</span>
+        <span>{event?.name}</span>
       </section>
       <article>
         <p>
@@ -117,9 +120,23 @@ const AttendanceLandingPage = () => {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </article>
-      <form action="">
-        <input type="text" />
-        <InputGroup className="mb-3">
+      {sentEmail ? (
+        <Button
+          style={{
+            marginRight: 20,
+            marginLeft: 20,
+            width: "90%",
+            backgroundColor: "black",
+          }}
+          variant="dark"
+          onClick={() => {
+            window.location.href = `/artist/${artist?.id}`;
+          }}
+        >
+          Checkout {artist?.name} Merch
+        </Button>
+      ) : (
+        <InputGroup className="mb-1 p-3">
           <Form.Control
             placeholder=" email"
             aria-label="Recipient's username"
@@ -134,7 +151,8 @@ const AttendanceLandingPage = () => {
             Enter
           </Button>
         </InputGroup>
-      </form>
+      )}
+
       <footer
         style={{
           display: "flex",

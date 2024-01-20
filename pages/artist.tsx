@@ -7,8 +7,6 @@ import EventForm from "@/components/EventForm";
 import EventList from "@/components/EventList";
 import Modal from "react-bootstrap/Modal";
 
-// import DashboardLandingPage from "../pages/dashboard.tsx"
-
 // this page will be for the attendees on the venue when they scan the QR
 
 const DashboardLandingPage = () => {
@@ -55,10 +53,10 @@ const DashboardLandingPage = () => {
       <div id="current-event">
         <h2>CURRENT EVENTS</h2>
         {/* JS insert: name/date of event or no event found*/}
-    </div>
-    <div>
-    <EventList list={list} />
-      <EventForm getEventList={getEventList} />
+      </div>
+      <div>
+        <EventList list={list} />
+        <EventForm setShowModal={setShowModal} getEventList={getEventList} />
         <button>Create New Event!</button>
         <div id="stats">
           <h2>NUMBER SCANNED</h2>

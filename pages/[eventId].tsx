@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import "./landing_styles.css";
 
 // this page will be for the attendees on the venue when they scan the QR
@@ -10,7 +12,7 @@ const AttendanceLandingPage = () => {
     <main>
       <section>
         <img src="" alt="" />
-        Hello this is attendance landing page
+        ARTIST NAME
       </section>
       <article>
         <p>
@@ -24,11 +26,23 @@ const AttendanceLandingPage = () => {
         </p>
       </article>
       <form action="">
-        <footer>
-          <input type="field" value="email" />
-          <button>enter</button>
-        </footer>
+            <input type="text" />
+            <InputGroup className="mb-3">
+                <Form.Control
+                placeholder=" email"
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+                />
+                <Button variant="outline-secondary" id="button-addon2">
+                Enter
+                </Button>
+            </InputGroup>
       </form>
+      <footer>
+            <a href="https://open.spotify.com/" target="blank">Spotify</a>
+            <a href="https://www.youtube.com/" target="blank">Youtube</a>
+            <a href="https://music.apple.com/us/browse" target="blank">Apple</a>
+      </footer>
     </main>
   );
 };

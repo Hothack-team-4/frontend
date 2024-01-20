@@ -1,5 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import Image from "next/image";
+import { toast } from "react-toastify";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -12,6 +14,7 @@ import {
   query,
   where,
   getDocs,
+  addDoc,
 } from "firebase/firestore";
 
 import "./landing_styles.css";
@@ -22,13 +25,15 @@ import { useDBContext } from "@/API/DBContext";
 const AttendanceLandingPage = () => {
   const fpPromise = FingerprintJS.load();
 
+  const [event, setEvent] = useState<any>();
+  const [artist, setArtist] = useState<any>();
+  const [email, setEmail] = useState("");
   const { db } = useDBContext();
 
   const getFingerPrint = async () => {
     if (!window) return;
     const fp = await fpPromise;
     const result = await fp.get();
-    console.log(result.visitorId);
     return result.visitorId;
   };
 
@@ -42,15 +47,52 @@ const AttendanceLandingPage = () => {
     const fingerPrint = await getFingerPrint();
 
     if (!querySnapshot.empty) {
-      querySnapshot.forEach((innerDoc) => {
-        console.log(innerDoc.id, " => ", innerDoc.data());
+      querySnapshot.forEach(async (innerDoc) => {
         const currAttendees = [...innerDoc.data().attendees];
+        console.log(fingerPrint, "fingerPrint top");
         currAttendees.push(fingerPrint);
         setDoc(doc(db, "events", innerDoc.id), {
           ...innerDoc.data(),
           attendees: currAttendees,
         });
+        setEvent({
+          id: innerDoc.id,
+          ...innerDoc.data(),
+        });
+        const users = collection(db, "users");
+        const q = query(
+          users,
+          where("email", "==", innerDoc.data().artistEmail)
+        );
+        const userSnapshot = await getDocs(q);
+
+        console.log(artist, "artist");
+        if (!userSnapshot.empty) {
+          userSnapshot.forEach((innerDoc) => {
+            setArtist({
+              id: innerDoc.id,
+              ...innerDoc.data(),
+            });
+          });
+        }
       });
+    }
+  };
+
+  const onSubmitEmail = async () => {
+    const fingerPrint = await getFingerPrint();
+    console.log(fingerPrint);
+    if (!db) return;
+
+    try {
+      await addDoc(collection(db, "attendees"), {
+        fingerPrint,
+        email,
+      });
+
+      toast("Thanks for attending!");
+    } catch (e) {
+      console.error("Error adding document: ", e);
     }
   };
 
@@ -62,7 +104,7 @@ const AttendanceLandingPage = () => {
     <main>
       <section>
         <img src="" alt="" />
-        ARTIST NAME
+        {artist?.name} {event?.name}
       </section>
       <article>
         <p>
@@ -82,21 +124,47 @@ const AttendanceLandingPage = () => {
             placeholder=" email"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <Button variant="outline-secondary" id="button-addon2">
+          <Button
+            onClick={onSubmitEmail}
+            variant="outline-secondary"
+            id="button-addon2"
+          >
             Enter
           </Button>
         </InputGroup>
       </form>
-      <footer>
+      <footer
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <a href="https://open.spotify.com/" target="blank">
-          Spotify
+          <Image
+            alt="spotify-logo"
+            src={"/spotify.png"}
+            width={50}
+            height={50}
+          />
         </a>
         <a href="https://www.youtube.com/" target="blank">
-          Youtube
+          <Image
+            alt="youtube-logo"
+            src={"/Youtube_logo.png"}
+            width={50}
+            height={50}
+          />
         </a>
         <a href="https://music.apple.com/us/browse" target="blank">
-          Apple
+          <Image
+            alt="apple-music-logo"
+            src={"/apple_music.png"}
+            width={50}
+            height={50}
+          />
         </a>
       </footer>
     </main>

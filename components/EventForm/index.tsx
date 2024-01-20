@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, addDoc, collection } from "firebase/firestore";
 
 import { useDBContext } from "@/API/DBContext";
 
@@ -23,14 +23,19 @@ const EventForm = ({}: Props) => {
     if (!db) return;
 
     const currUser = JSON.parse(localStorage.getItem("user") ?? "");
-    // Add a new events to db
-    await setDoc(doc(db, "events"), {
-      name: formState.name,
-      date: formState.date,
-      attendees: [],
-      qrLink: "",
-      artistEmail: currUser.email,
-    });
+
+    try {
+      const docRef = await addDoc(collection(db, "events"), {
+        name: formState.name,
+        date: formState.date,
+        attendees: [],
+        qrLink: "",
+        artistEmail: currUser.email,
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   };
 
   return (

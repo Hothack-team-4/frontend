@@ -20,7 +20,7 @@ const DashboardLandingPage = () => {
       console.log("Document written with ID: ", docRef.id);
     }
   };
-  createUser();
+  //   createUser();
   return <div> dashboard</div>;
 };
 

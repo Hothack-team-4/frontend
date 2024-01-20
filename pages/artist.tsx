@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useRef } from "react";
 import "./artiststyle.css";
 import codeGen from "@/utils/qrCodeGenerator";
 import { collection, getDocs } from "firebase/firestore";
 import { useDBContext } from "@/API/DBContext";
 import EventForm from "@/components/EventForm";
 import EventList from "@/components/EventList";
+import Modal from "react-bootstrap/Modal";
+
 // import DashboardLandingPage from "../pages/dashboard.tsx"
 
 // this page will be for the attendees on the venue when they scan the QR
 
 const DashboardLandingPage = () => {
-    const myRef = useRef(null);
-    const { db } = useDBContext();
+  const { db } = useDBContext();
+  const [showModal, setShowModal] = useState(false);
+
   const [list, setList] = useState<any>([]);
 
   const getEventList = async () => {
@@ -44,8 +46,10 @@ const DashboardLandingPage = () => {
   useEffect(() => {
     getEventList();
   }, [db]);
-    return <div id= "document-body">
-    <div>
+
+  return (
+    <div id="document-body">
+      <div>
         <h1>HELLO</h1>
       </div>
       <div id="current-event">
@@ -56,9 +60,31 @@ const DashboardLandingPage = () => {
     <EventList list={list} />
       <EventForm getEventList={getEventList} />
         <button>Create New Event!</button>
+        <div id="stats">
+          <h2>NUMBER SCANNED</h2>
+        </div>
+        <div id="QR-code">
+          <div id="placeholder-for-qrcode"></div>
+          <button>DOWNLOAD</button>
+        </div>
+      </div>
+      <div>
+        <EventList list={list} />
+
+        <Modal show={showModal} onHide={() => setShowModal(false)} animation>
+          <EventForm setShowModal={setShowModal} getEventList={getEventList} />
+        </Modal>
+
+        <button
+          onClick={() => {
+            setShowModal(!showModal);
+          }}
+        >
+          Create New Event!
+        </button>
       </div>
     </div>
-  
+  );
 };
 
 //export { DashboardLandingPage, qrcodeGenerator }

@@ -7,9 +7,10 @@ import { useDBContext } from "@/API/DBContext";
 
 type Props = {
   getEventList: any;
+  setShowModal: any;
 };
 
-const EventForm = ({ getEventList }: Props) => {
+const EventForm = ({ getEventList, setShowModal }: Props) => {
   const [formState, setFormState] = useState<{ [key: string]: string }>({});
   const { db } = useDBContext();
 
@@ -35,6 +36,7 @@ const EventForm = ({ getEventList }: Props) => {
       });
       console.log("Document written with ID: ", docRef.id);
       getEventList();
+      setShowModal(false);
     } catch (e) {
       console.error("Error adding document: ", e);
     }

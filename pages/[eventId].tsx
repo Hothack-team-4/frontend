@@ -1,13 +1,62 @@
 "use client";
+import React, { useEffect } from "react";
 
-import React from "react";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
+import {
+  setDoc,
+  doc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+
 import "./landing_styles.css";
+import { useDBContext } from "@/API/DBContext";
 
+// Initialize an agent at application startup.
 // this page will be for the attendees on the venue when they scan the QR
 const AttendanceLandingPage = () => {
+  const fpPromise = FingerprintJS.load();
+
+  const { db } = useDBContext();
+
+  const getFingerPrint = async () => {
+    if (!window) return;
+    const fp = await fpPromise;
+    const result = await fp.get();
+    console.log(result.visitorId);
+    return result.visitorId;
+  };
+
+  const addAttendeesToEvent = async () => {
+    if (!db) return;
+
+    const eventName = window.location.pathname.split("/")[1];
+    const events = collection(db, "events");
+    const q = query(events, where("name", "==", eventName));
+    const querySnapshot = await getDocs(q);
+    const fingerPrint = await getFingerPrint();
+
+    if (!querySnapshot.empty) {
+      querySnapshot.forEach((innerDoc) => {
+        console.log(innerDoc.id, " => ", innerDoc.data());
+        const currAttendees = [...innerDoc.data().attendees];
+        currAttendees.push(fingerPrint);
+        setDoc(doc(db, "events", innerDoc.id), {
+          attendees: currAttendees,
+        });
+      });
+    }
+  };
+
+  useEffect(() => {
+    addAttendeesToEvent();
+  }, []);
+
   return (
     <main>
       <section>
@@ -26,22 +75,28 @@ const AttendanceLandingPage = () => {
         </p>
       </article>
       <form action="">
-            <input type="text" />
-            <InputGroup className="mb-3">
-                <Form.Control
-                placeholder=" email"
-                aria-label="Recipient's username"
-                aria-describedby="basic-addon2"
-                />
-                <Button variant="outline-secondary" id="button-addon2">
-                Enter
-                </Button>
-            </InputGroup>
+        <input type="text" />
+        <InputGroup className="mb-3">
+          <Form.Control
+            placeholder=" email"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+          <Button variant="outline-secondary" id="button-addon2">
+            Enter
+          </Button>
+        </InputGroup>
       </form>
       <footer>
-            <a href="https://open.spotify.com/" target="blank">Spotify</a>
-            <a href="https://www.youtube.com/" target="blank">Youtube</a>
-            <a href="https://music.apple.com/us/browse" target="blank">Apple</a>
+        <a href="https://open.spotify.com/" target="blank">
+          Spotify
+        </a>
+        <a href="https://www.youtube.com/" target="blank">
+          Youtube
+        </a>
+        <a href="https://music.apple.com/us/browse" target="blank">
+          Apple
+        </a>
       </footer>
     </main>
   );

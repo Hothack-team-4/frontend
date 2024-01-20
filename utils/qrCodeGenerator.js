@@ -1,4 +1,3 @@
-
 // const fs = require('fs');
 // const QRCode = require('qrcode');
 
@@ -26,21 +25,21 @@
 //   console.log('QR code saved as index.html');
 // });
 
+const QRCode = require("qrcode");
 
-
-
-const QRCode = require('qrcode');
-
-function qrcodeGen(){
-QRCode.toString('web dev is mi pasion !!!!', {
-  errorCorrectionLevel: 'H',
-  type: 'png',
-  width: 500
-}, function(err, data) {
-  if (err) throw err;
-  console.log(data);
-});
+function codeGen() {
+  QRCode.toString(
+    "web dev is mi pasion !!!!",
+    {
+      errorCorrectionLevel: "H",
+      type: "png",
+      width: 500,
+    },
+    function (err, data) {
+      if (err) throw err;
+      console.log(data);
+    }
+  );
 }
 
-
-export default qrcodeGen;
+export default codeGen;

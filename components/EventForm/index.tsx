@@ -71,7 +71,7 @@ const EventForm = ({ getEventList, setShowModal }: Props) => {
       <Button
         disabled={Object.keys(formState).length !== 2}
         onClick={onSubmitEventForm}
-        style={{ backgroundColor: "black" }}
+        style={{ backgroundColor: "#d29209", borderColor: "##d29209", borderRadius: "100%"}}
       >
         Create Event
       </Button>

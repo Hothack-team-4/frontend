@@ -12,6 +12,7 @@ const EventList = ({ list }: any) => {
           <Card key={event.name}>
             <Card.Body>
               {event.name}
+              Attendees: {event.attendees.length}
               <div id={event.name} />
             </Card.Body>
           </Card>

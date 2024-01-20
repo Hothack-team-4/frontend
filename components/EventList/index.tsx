@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
+import Card from "react-bootstrap/Card";
+
 import { useDBContext } from "@/API/DBContext";
 
 const EventList = () => {
@@ -29,9 +31,14 @@ const EventList = () => {
 
   return (
     <div>
-      {/* {list.map((event: any) => {
-        return <span>{event.name}</span>;
-      })} */}
+      <h1>Here is your event list:</h1>
+      {list.map((event: any) => {
+        return (
+          <Card>
+            <Card.Body>{event.name}</Card.Body>
+          </Card>
+        );
+      })}
     </div>
   );
 };

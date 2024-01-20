@@ -12,13 +12,13 @@ const qrcodeGenerator = () => {
 
 const DashboardLandingPage = () => {
 
-    return <div>
+    return <div id= "document-body">
     <div>
-        <div id="image-placeholder"></div>
         <h1>HELLO</h1>
     </div>
     <div id="current-event">
         <h2>CURRENT EVENT</h2>
+        {/* JS insert: name/date of event or no event found*/}
         <div id="stats">
             <h2>NUMBER SCANNED</h2>
         </div>
@@ -31,7 +31,7 @@ const DashboardLandingPage = () => {
     <button>Create New Event!</button>
 
     <script>
-
+    {/* const currentEvent = document.querySelector("#current-event") */}
     </script>
         
     </div>

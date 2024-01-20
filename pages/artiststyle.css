@@ -2,12 +2,59 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family:  "Bebas Neue", sans-serif, Cambria, Cochin, Georgia, Times;
 }
 
-body {
+#document-body {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+
 }
 
-#image-placeholder {
+h1 {
+    font-size: 5em;
+    padding: 2vh;
+}
+h2 {
+    font-size: 4em;
+}
+#current-event, #stats, #QR-code {
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    min-height: 5em;
+    margin-bottom: 0.5em;
+}
+#current-event {
+    align-self: center;
+    flex-grow: 1;
+}
+
+#stats {
+    align-self: center;
+}
+
+#QR-code {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    flex-grow: 1;
     background-color: blue;
 }
+
+button {
+    font-family: Georgia, 'Times New Roman', Times, serif Cambria;
+    font-style: italic;
+    padding: 1em;
+    background-color: #d29209;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
+    border-radius: 100%;
+    margin: 2em;
+    }

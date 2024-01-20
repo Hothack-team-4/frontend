@@ -1,4 +1,5 @@
 import React from "react";
+import { useRef } from 'react';
 import codeGen from "../utils/qrCodeGenerator.js";
 import './artiststyle.css'
 
@@ -11,7 +12,7 @@ const qrcodeGenerator = () => {
 };
 
 const DashboardLandingPage = () => {
-
+    const myRef = useRef(null);
     return <div id= "document-body">
     <div>
         <h1>HELLO</h1>
@@ -27,12 +28,9 @@ const DashboardLandingPage = () => {
             <button>DOWNLOAD</button>
         </div>
     </div>
-
-    <button>Create New Event!</button>
-
-    <script>
-    {/* const currentEvent = document.querySelector("#current-event") */}
-    </script>
+    <div>
+        <button>Create New Event!</button>
+    </div>
         
     </div>
 };

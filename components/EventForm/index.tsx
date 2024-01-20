@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-import { doc, setDoc, addDoc, collection } from "firebase/firestore";
-
+import { addDoc, collection } from "firebase/firestore";
 import { useDBContext } from "@/API/DBContext";
 
-type Props = {};
+type Props = {
+  getEventList: any;
+};
 
-const EventForm = ({}: Props) => {
+const EventForm = ({ getEventList }: Props) => {
   const [formState, setFormState] = useState<{ [key: string]: string }>({});
   const { db } = useDBContext();
 
@@ -33,6 +34,7 @@ const EventForm = ({}: Props) => {
         artistEmail: currUser.email,
       });
       console.log("Document written with ID: ", docRef.id);
+      getEventList();
     } catch (e) {
       console.error("Error adding document: ", e);
     }

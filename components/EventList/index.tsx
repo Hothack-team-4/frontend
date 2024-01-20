@@ -9,7 +9,7 @@ const EventList = ({ list }: any) => {
       <h1>Here is your event list:</h1>
       {list.map((event: any) => {
         return (
-          <Card>
+          <Card key={event.name}>
             <Card.Body>
               {event.name}
               <div id={event.name} />

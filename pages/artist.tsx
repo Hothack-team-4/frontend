@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './artiststyle.css'
 
 // this page will be for the artist dashboard
 const DashboardLandingPage = () => {
@@ -28,6 +28,9 @@ const DashboardLandingPage = () => {
     </section>
     <button>Create New Event!</button>
 
+    <script>
+
+    </script>
         
     </body>
     </html>

@@ -1,5 +1,3 @@
-// "use client";
-
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -29,6 +27,15 @@ const UserForm = ({}: UserFormProps) => {
     const querySnapshot = await getDocs(q);
     if (!querySnapshot.empty) {
       querySnapshot.forEach((doc) => {
+        // console.log(doc.id, " => ", doc.data());
+
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            ...doc.data(),
+            id: doc.id,
+          })
+        );
         window.location.href = "/dashboard";
       });
     }

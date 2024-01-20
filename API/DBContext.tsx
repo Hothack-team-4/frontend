@@ -37,8 +37,6 @@ export const DBWrapper = ({ children }: PropsWithChildren) => {
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  console.log(db);
-
   return (
     <DBContext.Provider value={{ state, db }}>{children}</DBContext.Provider>
   );

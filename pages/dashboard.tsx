@@ -1,39 +1,20 @@
 "use client";
 
 import React from "react";
-import { collection, addDoc } from "firebase/firestore";
+import EventForm from "@/components/EventForm";
+import EventList from "@/components/EventList";
 
-import { useDBContext } from "@/API/DBContext";
 import "./landing_styles.css";
 
 // this page will be for the attendees on the venue when they scan the QR
 const DashboardLandingPage = () => {
-  const { db } = useDBContext();
-  const createUser = async () => {
-    if (db) {
-      const docRef = await addDoc(collection(db, "users"), {
-        email: "blablabla@mail.com",
-        role: "attendees",
-        phone: "238493",
-      });
-      console.log("Document written with ID: ", docRef.id);
-    }
-  };
-  createUser();
-
-  const createEvent = async () => {
-    if (db) {
-      const docRef = await addDoc(collection(db, "events"), {
-        date: "01.01.2024",
-        attendeesCount: "0",
-        artistId: "123"
-      });
-      console.log("Document written with ID: ", docRef.id);
-    }
-  };
-  createEvent();
-  
-  return <div> dashboard</div>;
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      Hello Back to Your dashboard
+      <EventList />
+      <EventForm />
+    </main>
+  );
 };
 
 export default DashboardLandingPage;

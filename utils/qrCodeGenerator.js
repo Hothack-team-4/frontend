@@ -28,11 +28,11 @@
 const QRCode = require("qrcode");
 
 function codeGen() {
-  QRCode.toString(
+  QRCode.toDataURL(
     "web dev is mi pasion !!!!",
     {
       errorCorrectionLevel: "H",
-      type: "png",
+      type: "image/png",
       width: 500,
     },
     function (err, data) {

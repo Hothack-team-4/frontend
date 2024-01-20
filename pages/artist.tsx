@@ -8,7 +8,7 @@ import "./artiststyle.css";
 
 const DashboardLandingPage = () => {
     const myRef = useRef(null);
-    const code = codeGen();
+    const code = codeGen("Hello this is a filler");
     console.log(code);
     return <div id= "document-body">
     <div>

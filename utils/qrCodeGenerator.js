@@ -27,9 +27,9 @@
 
 import QRCode from "qrcode"
 
-function codeGen() {
+function codeGen(input) {
   QRCode.toDataURL(
-    "filler !!!!",
+    input,
     {
       errorCorrectionLevel: "H",
       type: "image/png",

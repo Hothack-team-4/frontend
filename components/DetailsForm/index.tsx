@@ -83,9 +83,9 @@ const UserForm = ({}: UserFormProps) => {
         className="mb-3"
         onChange={(e) => onChangeUserInput("password", e.target.value)}
       />
-      <Modal show={showModal} onHide={() => setShowModal(false)} animation>
+      {/* <Modal show={showModal} onHide={() => setShowModal(false)} animation>
           <EventForm setShowModal={setShowModal} getEventList={getEventList} />
-        </Modal>
+        </Modal> */}
       <Button
         disabled={Object.keys(formState).length !== 2}
         onClick={onSubmitLogin}

@@ -21,6 +21,19 @@ const DashboardLandingPage = () => {
     }
   };
   createUser();
+
+  const createEvent = async () => {
+    if (db) {
+      const docRef = await addDoc(collection(db, "events"), {
+        date: "01.01.2024",
+        attendeesCount: "0",
+        artistId: "123"
+      });
+      console.log("Document written with ID: ", docRef.id);
+    }
+  };
+  createEvent();
+  
   return <div> dashboard</div>;
 };
 

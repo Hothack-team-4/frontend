@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Button } from "antd";
 
 import "./landing_styles.css";
 
@@ -26,7 +25,6 @@ const AttendanceLandingPage = () => {
       </article>
       <form action="">
         <footer>
-          <Button>lalalla</Button>
           <input type="field" value="email" />
           <button>enter</button>
         </footer>

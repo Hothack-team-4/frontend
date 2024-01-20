@@ -49,15 +49,8 @@ const DashboardLandingPage = () => {
         <h1>HELLO</h1>
       </div>
       <div id="current-event">
-        <h2>CURRENT EVENT</h2>
+        <h2>CURRENT EVENTS</h2>
         {/* JS insert: name/date of event or no event found*/}
-        <div id="stats">
-          <h2>NUMBER SCANNED</h2>
-        </div>
-        <div id="QR-code">
-          <div id="placeholder-for-qrcode"></div>
-          <button>DOWNLOAD</button>
-        </div>
     </div>
     <div>
     <EventList list={list} />

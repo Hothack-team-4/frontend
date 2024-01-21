@@ -20,13 +20,7 @@ h1 {
 h2 {
     font-size: 4em;
 }
-/* #current-event, #stats, #QR-code {
-    width: 70%;
-    justify-content: center;
-    align-items: center;
-    min-height: 5em;
-    margin-bottom: 0.5em;
-} */
+
 #stats {
     justify-content: center;
     align-items: center;
@@ -35,6 +29,7 @@ h2 {
 }
 #current-event {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: space-between;
 }

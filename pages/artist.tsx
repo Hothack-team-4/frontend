@@ -6,15 +6,15 @@ import { useDBContext } from "@/API/DBContext";
 import EventForm from "@/components/EventForm";
 import EventList from "@/components/EventList";
 import Modal from "react-bootstrap/Modal";
+import Graph from "@/components/Graph";
 
 // this page will be for the attendees on the venue when they scan the QR
-
 const DashboardLandingPage = () => {
   const { db } = useDBContext();
   const [showModal, setShowModal] = useState(false);
 
   const [list, setList] = useState<any>([]);
-
+  const [artistName, setArtistName] = useState("");
   const getEventList = async () => {
     if (!db) return;
 
@@ -41,17 +41,25 @@ const DashboardLandingPage = () => {
     }
   }, [list]);
 
+  const getArtistName = () => {
+    if (!localStorage) return;
+    const name = JSON.parse(localStorage.getItem("user") ?? "")?.name;
+    setArtistName(name);
+  };
+
   useEffect(() => {
     getEventList();
+    getArtistName();
   }, [db]);
 
   return (
     <div id="document-body">
       <div>
-        <h1>HELLO</h1>
+        <h1>Hello {artistName}</h1>
       </div>
       <div id="current-event">
-        <h2>CURRENT EVENTS</h2>
+        <h2>Events Insight</h2>
+        <Graph list={list} />
       </div>
       <div>
         <EventList list={list} />
@@ -65,7 +73,7 @@ const DashboardLandingPage = () => {
         <Modal show={showModal} onHide={() => setShowModal(false)} animation>
           <EventForm setShowModal={setShowModal} getEventList={getEventList} />
         </Modal> */}
-{/* 
+        {/* 
         <button
           onClick={() => {
             setShowModal(!showModal);

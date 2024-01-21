@@ -54,20 +54,52 @@ const DashboardLandingPage = () => {
 
   return (
     <div id="document-body">
-      <div>
+      <div className="pl-16">
         <h1>Hello {artistName}</h1>
+        <span
+          style={{
+            display: "flex",
+            width: "90%",
+            marginBottom: "2em",
+          }}
+        >
+          This is your event dashboard and insight, you can explore more
+          conversion rate and demographic by subscribing on our service.
+          <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aliquam nec facilisis ipsum. Sed faucibus eros quam, quis luctus lorem
+          ultricies id. Nulla felis ante, vehicula non finibus id, dictum ut
+          lacus. Suspendisse mollis nulla ligula, a fermentum massa euismod
+          eget. Nullam quis neque a lectus congue lacinia a sit amet justo. Ut
+          nec lectus quis dui bibendum rutrum. Sed commodo iaculis metus, non
+          ullamcorper nibh cursus quis.
+        </span>
       </div>
       <div id="current-event">
         <Graph list={list} />
       </div>
-      <div>
-        <button
-          onClick={() => {
-            setShowModal(!showModal);
+      <div
+        className="p-10"
+        style={{
+          paddingTop: 0,
+        }}
+      >
+        <span
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          Create New Event!
-        </button>
+          <h1>Event List</h1>
+          <button
+            onClick={() => {
+              setShowModal(!showModal);
+            }}
+          >
+            Create New Event!
+          </button>
+        </span>
         <EventList list={list} />
         <Modal show={showModal} onHide={() => setShowModal(false)} animation>
           <EventForm setShowModal={setShowModal} getEventList={getEventList} />

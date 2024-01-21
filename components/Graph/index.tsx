@@ -66,6 +66,7 @@ const Graph = ({ list }: any) => {
         width: "90vw",
         backgroundColor: "white",
         borderRadius: 20,
+        padding: 20,
       }}
     >
       <Line

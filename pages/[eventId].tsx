@@ -111,58 +111,42 @@ const AttendanceLandingPage = () => {
       </section>
       <article>
         <p>
-          This text is customisable. Add your own content here.
-          This text is customisable. Add your own content here.
-          This text is customisable. Add your own content here.
-          This text is customisable. Add your own content here.
-          This text is customisable. Add your own content here.
-          This text is customisable. Add your own content here.
-          This text is customisable. Add your own content here.
-          This text is customisable. Add your own content here.
-          This text is customisable. Add your own content here.
-          This text is customisable. Add your own content here.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          This text is customisable. Add your own content here. This text is
+          customisable. Add your own content here. This text is customisable.
+          Add your own content here. This text is customisable. Add your own
+          content here. This text is customisable.
         </p>
       </article>
-      {sentEmail ? (
-        <Button
-          style={{
-            marginRight: 20,
-            marginLeft: 20,
-            width: "90%",
-            backgroundColor: "black",
-          }}
-          variant="dark"
-          onClick={() => {
-            window.location.href = `/artist/${artist?.id}`;
-          }}
-        >
-          Checkout {artist?.name} Merch
-        </Button>
-      ) : (
-        <InputGroup className="mb-1 p-3">
-          <Form.Control
-            placeholder=" email"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Button
-            onClick={onSubmitEmail}
-            variant="outline-secondary"
-            id="button-addon2"
-          >
-            Enter
-          </Button>
-        </InputGroup>
-      )}
 
+      <InputGroup className="mb-1 p-3">
+        <Form.Control
+          placeholder=" email"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Button
+          onClick={onSubmitEmail}
+          variant="outline-secondary"
+          id="button-addon2"
+        >
+          Enter
+        </Button>
+      </InputGroup>
+      <Button
+        style={{
+          marginRight: 20,
+          marginLeft: 20,
+          width: "90%",
+          backgroundColor: "black",
+        }}
+        variant="dark"
+        onClick={() => {
+          window.location.href = `/artist/${artist?.id}`;
+        }}
+      >
+        Checkout {artist?.name} Merch
+      </Button>
       <footer
         style={{
           display: "flex",

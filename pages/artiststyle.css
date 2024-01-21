@@ -9,7 +9,9 @@
 #document-body {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    overflow: auto;
+    height: 100vh;
     background: linear-gradient(180deg, #d53369 0%, #daae51 100%);
 
 }
@@ -46,7 +48,7 @@ h2 {
 #current-event {
     display: flex;
     justify-content: center;
-    align-items: space-between;
+    align-items: center;
     margin-bottom: 1%;
 }
 
@@ -54,7 +56,7 @@ button {
     font-family: Georgia, 'Times New Roman', Times, serif Cambria;
     font-style: italic;
     padding: 1em;
-    background-color: #d29209;
+    background-color: black;
     border: none;
     color: white;
     text-align: center;
@@ -62,12 +64,6 @@ button {
     font-size: 1.5em;
     border-radius: 20px;
     margin: 2em;
+    margin-left: auto;
     }
-
-/* form {
-        width: 40rem;
-        display: flex;
-    justify-content: center;
-    align-items: center;
-    } */
 

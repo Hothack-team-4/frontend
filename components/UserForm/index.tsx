@@ -27,8 +27,6 @@ const UserForm = ({}: UserFormProps) => {
     const querySnapshot = await getDocs(q);
     if (!querySnapshot.empty) {
       querySnapshot.forEach((doc) => {
-        // console.log(doc.id, " => ", doc.data());
-
         localStorage.setItem(
           "user",
           JSON.stringify({

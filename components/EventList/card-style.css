@@ -1,16 +1,12 @@
 .qr-code-card {
-    /* display: flex;
-    /* align-items: center; */
-    /* justify-content: space-between; */ 
-    width: 40rem;
+    width: 100%;
     border: 3px solid black;
     margin: 1rem;
     
 }
 
 .qr-code {
-    border: solid 4px rgb(214, 211, 7);
-    padding-right: 13px;
+    /* padding-right: 13px; */
 }
 
 .qr-code-cards-container {
@@ -41,14 +37,13 @@
     justify-content: space-evenly;
     height: 15rem;
     width: 20rem;
-    padding-left: 5rem; 
     padding-right: 2rem;
 }
 
 .event-name {
-    color: #f3ef1c; 
+    /* color: #f3ef1c;  */
     font-size: 3.5rem; 
-    text-shadow: 2px 2px #020202;
+    /* text-shadow: 2px 2px #020202; */
     /* margin-bottom: 20px; */
 }
 
@@ -62,13 +57,3 @@
 }
 
 
-
-/* .qr-code-body {
-    
-} */
-
-/* .parent-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */

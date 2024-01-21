@@ -56,14 +56,9 @@ const DashboardLandingPage = () => {
       <div>
         <EventList list={list} />
         <EventForm setShowModal={setShowModal} getEventList={getEventList} />
-        <button>Create New Event!</button>
         {/* <div id="stats">
           <h2>NUMBER SCANNED</h2>
         </div> */}
-        <div id="QR-code">
-          <div id="placeholder-for-qrcode"></div>
-          <button>DOWNLOAD</button>
-        </div>
       </div>
       <div>
         {/* <EventList list={list} />

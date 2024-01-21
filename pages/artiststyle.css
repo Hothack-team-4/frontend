@@ -1,14 +1,16 @@
 * {
     box-sizing: border-box;
     padding: 0;
-    margin: 1%;
-    font-family:  "Bebas Neue", sans-serif, Cambria, Cochin, Georgia, Times;
+    /* margin: 1%; */
+    font: arial, helvetica;
 }
+
 
 #document-body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    background: linear-gradient(180deg, #d53369 0%, #daae51 100%);
 
 }
 
@@ -34,11 +36,18 @@ h2 {
 }
 
 
-#QR-code {
+/* #QR-code {
     justify-content: center;
     align-items: flex-end;
     min-height: 5em;
     margin-bottom: 0.5em;
+} */
+
+#current-event {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    margin-bottom: 1%;
 }
 
 button {
@@ -54,4 +63,11 @@ button {
     border-radius: 20px;
     margin: 2em;
     }
+
+/* form {
+        width: 40rem;
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    } */
 

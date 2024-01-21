@@ -58,29 +58,20 @@ const DashboardLandingPage = () => {
         <h1>Hello {artistName}</h1>
       </div>
       <div id="current-event">
-        <h2>Events Insight</h2>
         <Graph list={list} />
       </div>
       <div>
-        <EventList list={list} />
-        <EventForm setShowModal={setShowModal} getEventList={getEventList} />
-        {/* <div id="stats">
-          <h2>NUMBER SCANNED</h2>
-        </div> */}
-      </div>
-      <div>
-        {/* <EventList list={list} />
-        <Modal show={showModal} onHide={() => setShowModal(false)} animation>
-          <EventForm setShowModal={setShowModal} getEventList={getEventList} />
-        </Modal> */}
-        {/* 
         <button
           onClick={() => {
             setShowModal(!showModal);
           }}
         >
           Create New Event!
-        </button> */}
+        </button>
+        <EventList list={list} />
+        <Modal show={showModal} onHide={() => setShowModal(false)} animation>
+          <EventForm setShowModal={setShowModal} getEventList={getEventList} />
+        </Modal>
       </div>
     </div>
   );

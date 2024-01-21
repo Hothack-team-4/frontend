@@ -36,7 +36,7 @@ const UserForm = ({}: UserFormProps) => {
             id: doc.id,
           })
         );
-        window.location.href = "/dashboard";
+        window.location.href = "/artist";
       });
     }
   };
@@ -53,7 +53,7 @@ const UserForm = ({}: UserFormProps) => {
         borderRadius: 20,
       }}
       onSubmit={onSubmitLogin}
-      >
+    >
       <Form.Control
         placeholder="Email"
         aria-label="Email"
@@ -72,11 +72,11 @@ const UserForm = ({}: UserFormProps) => {
       <Button
         disabled={Object.keys(formState).length !== 2}
         onClick={onSubmitLogin}
-        style={{ backgroundColor: "black" }}>
+        style={{ backgroundColor: "black" }}
+      >
         Submit
       </Button>
     </form>
-    
   );
 };
 

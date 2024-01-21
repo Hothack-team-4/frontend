@@ -10,7 +10,6 @@
     flex-direction: column;
     flex-wrap: wrap;
 
-
 }
 
 h1 {
@@ -52,7 +51,7 @@ button {
     text-align: center;
     text-decoration: none;
     font-size: 1.5em;
-    border-radius: 100%;
+    border-radius: 20px;
     margin: 2em;
     }
 

@@ -1,12 +1,12 @@
 .qr-code-card {
     display: flex;
-    align-items: center;
-    width: 50rem;
+    /* align-items: center; */
+    width: 40rem;
 }
 
 .qr-code {
     border: solid 2px black;
-    padding-right: 8px;
+    padding-right: 13px;
 }
 
 .qr-code-cards-container {
@@ -15,6 +15,23 @@
     justify-content: center;
     align-items: center;
 }
+
+.qr-code-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qr-code-wrapper {
+    flex: 1; 
+}
+
+.event-details {
+    flex: 1; 
+    padding-left: 20px; 
+}
+
+
 
 /* .qr-code-body {
     

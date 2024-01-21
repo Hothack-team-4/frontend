@@ -1,0 +1,33 @@
+main {
+    font: arial, helvetica;
+    display: flex;
+    margin: 0rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #d53369 0%, #daae51 100%);
+    color: white;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.merch-container {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    overflow: scroll;
+
+}
+
+.card {
+    margin: 2rem;
+}
+
+h1 {
+    
+    text-align: center;
+    width: 100vw;
+    padding: 3rem;
+    font-size: 2rem;
+    font-weight: bold;
+}

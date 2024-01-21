@@ -81,11 +81,9 @@ const UserForm = ({}: UserFormProps) => {
         aria-label="DOB"
         aria-describedby="basic-addon1"
         className="mb-3"
+        type='date'
         onChange={(e) => onChangeUserInput("password", e.target.value)}
       />
-      {/* <Modal show={showModal} onHide={() => setShowModal(false)} animation>
-          <EventForm setShowModal={setShowModal} getEventList={getEventList} />
-        </Modal> */}
       <Button
         disabled={Object.keys(formState).length !== 2}
         onClick={onSubmitLogin}

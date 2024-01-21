@@ -1,4 +1,5 @@
 import UserForm from "@/components/DetailsForm";
+import "./details_styles.css"
 
 export default function Home() {
   return (

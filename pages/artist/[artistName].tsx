@@ -3,6 +3,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import "./artistName_styles.css"
 
 export default function ArtistPage() {
   const { db } = useDBContext();
@@ -58,24 +59,20 @@ export default function ArtistPage() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center  p-10">
-      <h1 className="mb-10">{artist?.name}</h1>
+    <main className="flex min-h-screen flex-col items-center title">
+      <h1>{artist?.name}</h1>
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gridGap: "1em",
-        }}
+       className='merch-container'
       >
         {mockData.map((item) => {
           return (
-            <Card key={item.name} style={{ width: "10rem" }}>
+            <Card className="card" key={item.name} style={{ width: "18rem" }}>
               <Card.Img variant="top" src="/placeholder.png" />
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>
                 <Card.Text>{item.price} AUD</Card.Text>
                 <Button
-                  style={{ backgroundColor: "black", marginTop: "0.5em" }}
+                  style={{ backgroundColor: "black", marginTop: "0.5em", width: "100%" }}
                   variant="dark"
                 >
                   Buy

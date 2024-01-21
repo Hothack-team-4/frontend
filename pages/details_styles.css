@@ -1,0 +1,11 @@
+main {
+    background: linear-gradient(180deg, #d53369 0%, #daae51 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+    background-color: white;
+    font-size: 4em;
+    font-style: bold;
+    width: 100%
+}

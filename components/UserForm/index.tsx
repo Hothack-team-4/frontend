@@ -47,11 +47,13 @@ const UserForm = ({}: UserFormProps) => {
       style={{
         margin: 20,
         padding: 20,
+        paddingTop: 26,
+        width: "34rem",
         backgroundColor: "white",
         borderRadius: 20,
       }}
       onSubmit={onSubmitLogin}
-    >
+      >
       <Form.Control
         placeholder="Email"
         aria-label="Email"
@@ -62,6 +64,7 @@ const UserForm = ({}: UserFormProps) => {
       <Form.Control
         placeholder="Password"
         aria-label="Password"
+        type="password"
         aria-describedby="basic-addon1"
         className="mb-3"
         onChange={(e) => onChangeUserInput("password", e.target.value)}
@@ -69,11 +72,11 @@ const UserForm = ({}: UserFormProps) => {
       <Button
         disabled={Object.keys(formState).length !== 2}
         onClick={onSubmitLogin}
-        style={{ backgroundColor: "black" }}
-      >
+        style={{ backgroundColor: "black" }}>
         Submit
       </Button>
     </form>
+    
   );
 };
 

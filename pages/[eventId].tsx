@@ -111,6 +111,16 @@ const AttendanceLandingPage = () => {
       </section>
       <article>
         <p>
+          This text is customisable. Add your own content here.
+          This text is customisable. Add your own content here.
+          This text is customisable. Add your own content here.
+          This text is customisable. Add your own content here.
+          This text is customisable. Add your own content here.
+          This text is customisable. Add your own content here.
+          This text is customisable. Add your own content here.
+          This text is customisable. Add your own content here.
+          This text is customisable. Add your own content here.
+          This text is customisable. Add your own content here.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
